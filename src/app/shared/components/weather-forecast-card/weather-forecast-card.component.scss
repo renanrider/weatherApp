@@ -1,0 +1,70 @@
+.forecast-card {
+  padding: 1em;
+  border-radius: 4px;
+  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+}
+
+.forecast-card .simple-weather-info {
+  width: 220px;
+  padding: 1em;
+}
+
+.forecast-card .simple-weather-info p {
+  font-family: Roboto;
+  display: block;
+  font-size: 1em;
+  margin: 0 auto;
+}
+
+.forecast-card .detailed-weather-info p span:nth-child(1) {
+  color: #b30000;
+}
+
+.forecast-card .detailed-weather-info p span:nth-child(1), :after {
+  margin-right: 1em;
+}
+
+.forecast-card .detailed-weather-info p span:nth-child(2) {
+  color: #4a90e2;
+}
+
+.detailed-weather-info p {
+  font-family: Roboto;
+  font-size: 1em;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #3c3c3c;
+}
+
+.forecast-card .detailed-weather-info p:nth-child(2) span {
+  font-family: Roboto;
+  font-size: 1em;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #b30000;
+}
+
+.forecast-card .detailed-weather-info p:nth-child(3) span {
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #4a90e2;
+}
+
+.visual-weather-info p {
+  display: inline-block;
+}
+
+.visual-weather-info img {
+}

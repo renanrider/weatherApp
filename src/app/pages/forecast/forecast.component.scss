@@ -33,6 +33,15 @@
   background-color: red;
 }
 
+.weather-info p {
+  margin: 0 auto;
+}
+
+.weather-info p:first-child {
+  margin: 0 auto;
+  font-size: 3em;
+}
+
 .weather-info div:nth-child(1) {
   max-width: 200px;
   height: 104px;
@@ -67,6 +76,7 @@
 .forecast-title {
   margin: 2em 0;
 }
+
 .forecast-title h2 {
   font-size: 1.5em;
 }

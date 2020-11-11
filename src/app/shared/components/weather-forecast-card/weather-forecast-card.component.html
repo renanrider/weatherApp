@@ -1,22 +1,25 @@
-<div class="weather-card card">
+<div class="forecast-card card">
   <div class="container">
     <div class="row">
       <div class="col-sm">
-        <div class="simple-weather-info d-flex align-items-center">
-          <p class="text-center">{{getDayOfWeek()}}</p>
-          <p class="text-center">{{getHour()}}</p>
+        <div class="simple-weather-info">
+          <p class="text-left">{{getDayOfWeek()}}</p>
+          <p class="text-left">{{getHour()}}</p>
         </div>
       </div>
 
-      <div class="col-sm visual-weather-info">
+      <div class="col-sm visual-weather-info simple-weather-info d-flex align-items-center">
         <img
           src="{{icon}}"
           alt="Icon">
         <p>{{weatherDescription}}</p>
       </div>
 
-      <div class="col-sm detailed-weather-info">
-        <p><span>{{tempMin}}</span> °C <span>{{tempMax}} °C</span></p>
+      <div class="col-sm detailed-weather-info simple-weather-info d-flex align-items-center">
+        <p>
+          <span>{{tempMin}} °C</span>
+          <span>{{tempMax}} °C</span>
+        </p>
       </div>
 
     </div>
