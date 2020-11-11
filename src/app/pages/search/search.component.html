@@ -1,0 +1,56 @@
+<nav class="search-navbar">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <p class="text-center text-uppercase">Weather in your city</p>
+        <div class="input-group md-form form-sm form-2 pl-0 input-search">
+          <input [(ngModel)]="searchTerm" class="form-control py-2 border-right-0 border" type="search" value="search"
+                 aria-label="Search">
+          <span class="input-group-append">
+                <button (click)="searchCity()" class="btn btn-outline-secondary border-left-0 border" type="button">
+                    <i class="ion-android-search"></i>
+                </button>
+              </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="container status">
+  <div class="row">
+    <div *ngIf="isFetching" class="col-sm offset-sm-5 d-flex justify-content-center align-content-center">
+      <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+
+    <div class="col-sm offset-sm d-flex justify-content-center align-content-center">
+      <div *ngIf="!isFetching && fetchError" class="alert alert-danger">
+        Ops... Ocorreu um erro, tente novamente.
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row info-loading d-flex justify-content-center">
+    <div class="cities-list" *ngIf="!isFetching">
+      <div class="col-sm d-flex justify-content-center" *ngFor="let city of cities">
+        <app-weather-card
+          routerLink="forecast/{{city.id}}"
+          routerLinkActive="active"
+          cityName="{{city.name}}"
+          temp="{{city.main.temp_min}}"
+          tempMin="{{city.main.temp_min}}"
+          tempMax="{{city.main.temp_max}}"
+          icon="{{getIcon(city.weather[0].icon)}}"
+          weatherDescription="{{city.weather[0].main}}"
+          flag="{{getFlag(city.sys.country)}}"
+          country="{{city.sys.country}}"
+        >
+        </app-weather-card>
+      </div>
+    </div>
+  </div>
+</div>
+

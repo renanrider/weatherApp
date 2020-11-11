@@ -1,0 +1,89 @@
+<nav class="search-navbar navbar">
+  <a class="navbar-brand" routerLink="/search">
+    <i class="ion-android-arrow-back"
+       aria-hidden="true">
+    </i>
+  </a>
+
+  <div class="input-group md-form form-sm form-2 pl-0 input-search">
+    <input [(ngModel)]="searchTerm" class="form-control py-2 border-right-0 border" type="search" value="search"
+           aria-label="Search">
+    <span class="input-group-append">
+                <button (click)="searchCity()" class="btn btn-outline-secondary border-left-0 border" type="button">
+                    <i class="ion-android-search"></i>
+                </button>
+              </span>
+  </div>
+</nav>
+
+<div class="row">
+  <div class="col-sm d-flex justify-content-center city-title">
+    <h2 class="text-center">Weather in SP <span>every 3 hours</span></h2>
+  </div>
+</div>
+
+<div class="container container-bg">
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="weather-info">
+        <div>
+          <p>17 °C</p>
+        </div>
+        <div>
+          <img class="img-thumbnail" src="https://miro.medium.com/max/1838/0*LjgcvKvzCJ-_agJ6.jpg" alt="">
+          <p>Clouds</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-9">
+      <div class="detailed-weather-info">
+        <div>Max 10</div>
+        <div>Min 10</div>
+        <div>Sunrise</div>
+        <div>Sunset</div>
+      </div>
+
+    </div>
+
+
+  </div>
+
+  <div class="row">
+    <div *ngIf="isFetching" class="col-sm">
+      <div class="d-flex justify-content-center">
+        <div class="spinner-border" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+      <div *ngIf="fetchError === false" class="alert alert-danger" role="alert">
+        Ops... Ocorreu um erro, tente novamente.
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm d-flex forecast-title">
+      <h2 class="text-left">5 Day weather forecast <span>every 3 hours</span></h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="cities-list" *ngIf="!isFetching">
+        <div *ngFor="let day of days">
+          <app-weather-forecast-card
+            date="{{day.dt}}"
+            hour="{{day.dt_txt}}"
+            icon="{{getIcon(day.weather[0].icon)}}"
+            weatherDescription="{{day.weather[0].main}}"
+            tempMin="{{day.main.temp_min}}"
+            tempMax="{{day.main.temp_max}}"
+          >
+          </app-weather-forecast-card>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+

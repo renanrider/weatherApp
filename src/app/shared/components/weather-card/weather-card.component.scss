@@ -1,0 +1,83 @@
+.weather-card {
+  width: 620px;
+  height: 170px;
+  margin: 0 330px 16px;
+  padding: 16px 32px 16px 16px;
+  border-radius: 4px;
+  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+}
+
+.weather-card .simple-weather-info {
+  width: 220px;
+  height: 138px;
+  padding: 1em;
+  border-radius: 4px;
+  border: solid 1px #f0f0f0;
+  background-color: #f0f0f0;
+}
+
+.weather-card .simple-weather-info p {
+  opacity: 0.75;
+  font-family: Roboto;
+  font-size: 44px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  margin: 0 auto;
+  color: #3c3c3c;
+}
+
+.weather-card .detailed-weather-info p:nth-child(1) {
+  font-family: Roboto;
+  font-size: 20px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #39a3db;
+}
+
+.detailed-weather-info p {
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #3c3c3c;
+}
+
+.weather-card .detailed-weather-info p:nth-child(2) span {
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #b30000;
+}
+
+.weather-card .detailed-weather-info p:nth-child(3) span {
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #4a90e2;
+}
+
+
+.visual-weather-info {
+}
+
+.visual-weather-info img {
+}

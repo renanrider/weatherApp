@@ -1,0 +1,25 @@
+<div class="weather-card card">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm">
+        <div class="simple-weather-info d-flex align-items-center">
+          <p class="text-center">{{getDayOfWeek()}}</p>
+          <p class="text-center">{{getHour()}}</p>
+        </div>
+      </div>
+
+      <div class="col-sm visual-weather-info">
+        <img
+          src="{{icon}}"
+          alt="Icon">
+        <p>{{weatherDescription}}</p>
+      </div>
+
+      <div class="col-sm detailed-weather-info">
+        <p><span>{{tempMin}}</span> °C <span>{{tempMax}} °C</span></p>
+      </div>
+
+    </div>
+  </div>
+
+</div>
