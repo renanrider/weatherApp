@@ -23,6 +23,7 @@ export class SearchComponent implements OnInit {
 
   async searchCity() {
     this.isFetching = true;
+    this.fetchError = false;
     if (this.searchTerm === undefined) return this.fetchError = true;
     this.isFetching = true;
     this.fetchError = false;

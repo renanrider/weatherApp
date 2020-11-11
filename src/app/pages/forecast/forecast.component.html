@@ -9,42 +9,42 @@
     <input [(ngModel)]="searchTerm" class="form-control py-2 border-right-0 border" type="search" value="search"
            aria-label="Search">
     <span class="input-group-append">
-                <button (click)="searchCity()" class="btn btn-outline-secondary border-left-0 border" type="button">
+                <button class="btn btn-outline-secondary border-left-0 border" type="button">
                     <i class="ion-android-search"></i>
                 </button>
-              </span>
+     </span>
   </div>
 </nav>
 
 <div class="container">
-<div class="row">
-  <div class="col-sm d-flex justify-content-center city-title">
-    <h2 class="text-center">Weather in SP <span>every 3 hours</span></h2>
+  <div class="row">
+    <div *ngIf="!isFetchingCurrentWeather" class="col-sm d-flex justify-content-center city-title">
+      <h2 class="text-center">Weather in {{currentCity.name}}, {{currentCity.sys.country}} <span>every 3 hours</span></h2>
+    </div>
   </div>
-</div>
 </div>
 
 
 <div class="container container-bg">
   <div class="row">
     <div class="col-sm-3">
-      <div class="weather-info">
+      <div *ngIf="!isFetchingCurrentWeather" class="weather-info">
         <div class="d-flex align-items-center">
-          <p>17 °C</p>
+          <p>{{currentCity.main.temp}} °C</p>
         </div>
         <div class="d-flex flex-column">
-          <img class="img-thumbnail" src="https://miro.medium.com/max/1838/0*LjgcvKvzCJ-_agJ6.jpg" alt="">
-          <p>Clouds</p>
+          <img src="{{getIcon(currentCity.weather[0].icon)}}" alt="">
+          <p>{{currentCity.weather[0].description}}</p>
         </div>
       </div>
     </div>
 
     <div class="col-sm-9">
-      <div class="detailed-weather-info">
-        <div>Max 10</div>
-        <div>Min 10</div>
-        <div>Sunrise</div>
-        <div>Sunset</div>
+      <div *ngIf="!isFetchingCurrentWeather" class="detailed-weather-info">
+        <div>Max {{currentCity.main.temp_max}} °C</div>
+        <div>Min {{currentCity.main.temp_min}} °C</div>
+        <div>Sunrise {{getHour(currentCity.sys.sunrise)}}</div>
+        <div>Sunset {{getHour(currentCity.sys.sunset)}}</div>
       </div>
 
     </div>

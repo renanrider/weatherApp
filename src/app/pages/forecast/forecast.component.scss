@@ -39,7 +39,7 @@
 
 .weather-info p:first-child {
   margin: 0 auto;
-  font-size: 3em;
+  font-size: 2em;
 }
 
 .weather-info div:nth-child(1) {
@@ -55,11 +55,17 @@
   height: 104px;
   border-radius: 4px;
   border: solid 1px #f0f0f0;
-  background-color: #f0f0f0;
+  background-color: #ffffff;
+}
+
+.weather-info div:nth-child(2) img {
+  max-width: 50px;
+  max-height: 50px;
+  margin: 0 auto;
 }
 
 .detailed-weather-info div {
-  border-bottom: 1px #d7caca6e outset;
+  border-bottom: 2px solid #f4f4f4;
   margin-bottom: 0.2em;
   padding: 0.21em 0;
 }

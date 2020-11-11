@@ -10,9 +10,13 @@ import {WeatherModel} from "../../weather.model";
 })
 export class ForecastComponent implements OnInit {
   public searchTerm: string;
-  public days: Array<any> = [];
+  public days: Array<WeatherModel> = [];
   public isFetching = true;
   public fetchError = false;
+  public isFetchingCurrentWeather = true;
+  public fetchErrorCurrentWeather = false;
+  public currentCity: Array<any> = [];
+  private cityId: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -21,32 +25,50 @@ export class ForecastComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (this.route.snapshot.paramMap.has('id')) {
+      this.cityId = this.route.snapshot.paramMap.get('id');
+    }
     this.load();
+    this.getCurrentWeather();
+
   }
 
   load() {
-    if (this.route.snapshot.paramMap.has('id')) {
-      let id = this.route.snapshot.paramMap.get('id');
+    if (this.cityId !== undefined) {
+      this.weatherService.weatherForecast(this.cityId)
+        .subscribe(city => {
+          this.days = city.list;
+          this.isFetching = false;
+          this.fetchError = false;
 
-      if (id !== undefined) {
-        this.weatherService.weatherForecast(id)
-          .subscribe(city => {
-            this.days = city.list;
-            this.isFetching = false;
-            this.fetchError = false;
-
-            console.log(this.days)
-
-            if (this.days.length === 0) {
-              this.fetchError = true;
-            }
-
-          }, error => {
-            this.isFetching = false;
+          if (this.days.length === 0) {
             this.fetchError = true;
-          })
+          }
 
-      }
+        }, error => {
+          this.isFetching = false;
+          this.fetchError = true;
+        })
+    }
+  }
+
+  getCurrentWeather() {
+    if (this.cityId !== undefined) {
+      this.weatherService.currentWeather(this.cityId)
+        .subscribe(data => {
+          console.log(data)
+          this.currentCity = data;
+          this.isFetchingCurrentWeather = false;
+          this.fetchErrorCurrentWeather = false;
+
+          if (this.currentCity.length === 0) {
+            this.fetchError = true;
+          }
+
+        }, error => {
+          this.isFetchingCurrentWeather = false;
+          this.fetchErrorCurrentWeather = true;
+        })
     }
   }
 
@@ -54,7 +76,14 @@ export class ForecastComponent implements OnInit {
     if (iconId !== undefined) return `https://openweathermap.org/img/w/${iconId}.png`
   }
 
-  searchCity() {
-
+  getHour(hour: string) {
+    if (hour === undefined) return;
+    let date = new Date(hour);
+    let hours = date.getHours();
+    let minutes: string | number = date.getMinutes();
+    hours = hours % 12;
+    hours = hours ? hours : 12; // the hour '0' should be '12'
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+    return hours + ':' + minutes;
   }
 }

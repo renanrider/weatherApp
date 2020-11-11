@@ -6,4 +6,5 @@ export interface WeatherModel {
   icon: string;
   weatherDescription: string;
   flag: string;
+  sys: Array<string>
 }

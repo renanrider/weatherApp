@@ -22,7 +22,9 @@ export class WeatherForecastCardComponent implements OnInit {
   getDayOfWeek() {
     if (this.date === undefined) return;
     const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-    const date = new Date(parseInt(this.date));
+    const date = new Date(parseFloat(this.date));
+
+    //console.log(date)
     const month = [
       'January',
       'February',

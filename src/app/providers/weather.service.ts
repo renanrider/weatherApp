@@ -25,6 +25,6 @@ export class WeatherService {
 
   // Weather forecast
   weatherForecast(cityId: String) : any{
-    return this.http.get(`${this.api}/forecast?id=${cityId}&units=metric&appId=${environment.appID}&cnt=5`);
+    return this.http.get(`${this.api}/forecast?id=${cityId}&units=metric&appId=${environment.appID}&cnt=25`);
   }
 }

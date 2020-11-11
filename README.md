@@ -1,27 +1,36 @@
-# WeatherApp
+---
+### Weather App
+É um exemplo de app em Angular, que faz chamadas a API Open Weather
+### Pré-requisitos
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0.
+Para rodar o projeto é pré-requisito ter o `Node.js` instalado (versão 10.x ou acima) e o npm . Caso você ainda não tenha instalado o pacote `@angular/cli`, instale-o via `npm`.
 
-## Development server
+Instalando com npm:
+```
+npm install -g @angular/cli
+```
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### Passo 1 - Clonar o projeto
+```
+> git clone https://github.com/renanrider/weatherApp.git
+```
 
-## Code scaffolding
+#### Passo 1.1 - Instalando as dependências
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Entrar no diretório via terminal cmd 
 
-## Build
+#### Passo 1.2 - Instalando as dependências
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Após estar dentro do diretório do projeto executar o comando:
 
-## Running unit tests
+```
+npm install
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Passo 2 - Executar o projeto
 
-## Running end-to-end tests
+Execute o comando abaixo na pasta raiz do seu projeto:
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```
+ng serve -o
+```
